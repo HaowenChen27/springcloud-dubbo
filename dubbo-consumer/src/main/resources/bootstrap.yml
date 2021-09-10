@@ -1,0 +1,26 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: dubbo-consumer
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        group: dubbo-demo
+        namespace: e33f0021-4177-4b79-8b56-3ea9a6f67564
+
+logging:
+  level:
+    com.alibaba.nacos.client.naming: WARN
+
+dubbo:
+  scan:
+    base-packages: com.dubbo.demo.service
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://127.0.0.1:8848
